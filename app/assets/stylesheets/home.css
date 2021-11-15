@@ -1,0 +1,22 @@
+.Home-title  {
+  font-size: 20px;
+  margin-bottom: 30px;
+
+
+
+}
+.Home-authenticate {
+  margin-bottom: 20px;
+  font-size: 16px;
+
+}
+.Header {
+  padding:10px;
+  background-color:lemonchiffon;
+  font-size: 14px;
+  margin-bottom:10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+
+}

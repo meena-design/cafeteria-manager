@@ -3,23 +3,33 @@
     <%= form_with(url: "/users", method: "post") do %>
         <div class="Form-section">
             <p class="Input-label">
-                 Name:
+                Name:
             </p>
-            <%= text_field_tag "name", nil, autofocus: true,
-                                            placeholder: "Name",
-                                            class: "Form-Input" %>
+            <%= text_field_tag "name", nil,
+                               autofocus: true,
+                               placeholder: "Name",
+                               class: "Form-Input" %>
         </div>
         <div class="Form-section">
             <p class="Input-label">
                 Role :
             </p>
-        <%= select_tag("role", options_for_select([["owner", 1], ["clerk", 2], ["customer"]], params[:role].to_i), { :name => "role" }) %>
+        <%= select_tag(
+              "role", options_for_select([["owner", "owner"],
+                                          ["clerk", "clerk"],
+                                          ["customer", "customer"]]),
+              { :name => "role" }
+            ) %>
         </div>
         <div class="Form-section">
         <p class="Input-label">
                 Email - id
         </p>
         <%= text_field_tag "email", nil, class: "Form-Input" %>
+        <p class="Input-label">
+               password :
+        </p>
+        <%= password_field_tag "password", value = nil, class: "Form-input" %>
         </div>
 
         <div class="Form-section">

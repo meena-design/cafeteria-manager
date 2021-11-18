@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CafeteriaManager</title>
+    <title>My Cafe Manager</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
     <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
   </head>
 
   <body>
-  <p class="Header">Welcome to CafeteriaManager </p>
-  <% if flash[:error] %>
-          <p class="Flash-error">
-              <%= flash[:error] %>
-          </p>
+    <p class="Header">Welcome to CafeteriaManager </p>
+
+    <!-- if current user then show the username and role also -->
+    <% if flash[:error] %>
+      <p class="Flash-error">
+        <%= flash[:error] %>
+      </p>
     <% end %>
     <% if flash[:success] %>
       <p class="Flash-success">
-          <%= flash[:success] %>
+        <%= flash[:success] %>
       </p>
     <% end %>
     <%= yield %>
+
   </body>
 </html>

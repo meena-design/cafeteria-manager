@@ -12,6 +12,16 @@
 
   <body>
   <p class="Header">Welcome to CafeteriaManager </p>
+  <% if flash[:error] %>
+          <p class="Flash-error">
+              <%= flash[:error] %>
+          </p>
+    <% end %>
+    <% if flash[:success] %>
+      <p class="Flash-success">
+          <%= flash[:success] %>
+      </p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

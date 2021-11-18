@@ -1,0 +1,29 @@
+<p class="NewUsers-title">Welcome new user</p>
+<section class="UsersNew">
+    <%= form_with(url: "/users", method: "post") do %>
+        <div class="Form-section">
+            <p class="Input-label">
+                 Name:
+            </p>
+            <%= text_field_tag "name", nil, autofocus: true,
+                                            placeholder: "Name",
+                                            class: "Form-Input" %>
+        </div>
+        <div class="Form-section">
+            <p class="Input-label">
+                Role :
+            </p>
+        <%= select_tag("role", options_for_select([["owner", 1], ["clerk", 2], ["customer"]], params[:role].to_i), { :name => "role" }) %>
+        </div>
+        <div class="Form-section">
+        <p class="Input-label">
+                Email - id
+        </p>
+        <%= text_field_tag "email", nil, class: "Form-Input" %>
+        </div>
+
+        <div class="Form-section">
+            <%= submit_tag "Sign-up!", class: "Form-submit" %>
+        </div>
+    <% end %>
+</section>

@@ -1,0 +1,10 @@
+<!-- this page is add menu category items such as breakfast , lunch , dinner and snacks -->
+<main>
+    <article>
+      <h1>Menu category Items to Add </h1>
+      <%= form_with(url: "/menus", method: "post") do %>
+      <%= text_field_tag "menu_name", nil, autofocus: true, placeholder: "Menu Category here" %>
+      <%= submit_tag "Add" %>
+      <% end %>
+    </article>
+ </main>

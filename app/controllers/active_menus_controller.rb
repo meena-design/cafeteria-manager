@@ -15,7 +15,7 @@ class ActiveMenusController < ApplicationController
       ActiveMenu.first.update(active_menu: new_active_menu)
       redirect_to menus_path
     else
-      flash[:error] = "Enter a Menu_id that Exists!"
+      flash[:error] = "Menu Item does not exists . Please enter a valid one !"
       redirect_to menus_path
     end
   end

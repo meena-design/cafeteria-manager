@@ -10,10 +10,7 @@ class OrderItemsController < ApplicationController
   end
 
   def update
-    OrderItem.update_order_count(
-      params[:id],
-      params[:count]
-    )
+    OrderItem.update_order_count(params[:id], params[:count])
   end
 
   def destroy()

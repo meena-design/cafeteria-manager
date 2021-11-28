@@ -7,7 +7,7 @@ class MenusController < ActionController::Base
     # here choose menu items of a concerned menu
   end
 
-  def new
+  def create
     newmenu = Menu.new(name: params[:menu_name])
     if newmenu.save
       redirect_to menus_path
@@ -19,7 +19,7 @@ class MenusController < ActionController::Base
     end
   end
 
-  def create
+  def new
   end
 
   def show

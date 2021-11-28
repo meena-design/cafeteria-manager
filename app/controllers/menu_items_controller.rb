@@ -1,5 +1,5 @@
 class Menu_Item_Controller < ApplicationController
-  #before_action :ensure_owner
+  before_action :ensure_owner
 
   def new
     #@menuitems = MenuItem.where(menu_category_id: current_menu_id)

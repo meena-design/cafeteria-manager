@@ -8,7 +8,7 @@
 }
 .Header {
   padding:10px;
-  background-color:lemonchiffon;
+  background-color:rgb(243, 92, 210);
   font-size: 14px;
   margin-bottom:10px;
   font-weight: bold;
@@ -26,7 +26,7 @@
   margin-bottom: 20px;
   font-size: 16px;
 }
-.table
+table
  {
    width: 100%;
    border: 2px solid;
@@ -35,3 +35,22 @@
    text-align: center;
  }
  tr:hover {background-color: rgb(194, 247, 173);}
+
+.buttons {
+  background: #3498db;
+
+  border-radius: 9px;
+  font-family: Georgia;
+  color: #ffffff;
+  font-size: 10px;
+  padding: 5px 5px 5px 5px;
+
+  margin : 3px;
+
+}
+
+.buttons:hover {
+  background: #3cb0fd;
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}

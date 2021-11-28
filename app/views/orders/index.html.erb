@@ -1,22 +1,22 @@
   <div>
-    <%= link_to "Modify Menu & Items ", "/menus" %>
-    <%= link_to "View Orders", "/active/orders" %>
-    <%= link_to "Modify Orders", "/active/orders" %>
-    <%= link_to "My panel", "/mypanel" %>
+    <%= link_to "Modify Menu & Items ", "/menus", class: "buttons" %>
+    <%= link_to "View Orders", "/active/orders", class: "buttons" %>
+    <%= link_to "Modify Orders", "/active/orders", class: "buttons" %>
+    <%= link_to "My panel", "/mypanel", class: "buttons" %>
   </div>
 
 
  <div>
-    <%= link_to "Pending Orders (User)", "/user/orders/" %>
-    <%= link_to "Completed Orders (User)", "/user/completed/" %>
+    <%= link_to "Pending Orders (User)", "/user/orders/", class: "buttons" %>
+    <%= link_to "Completed Orders (User)", "/user/completed/", class: "buttons" %>
   </div>
 
 
-<h1 class='heading'>Order Here :  </h1>
+<h1>Order Here :  </h1>
 
-<h5>Order Id:  <%= session[:current_order_id] %></h5>
+<h3>Order Id:  <%= session[:current_order_id] %></h3>
 
-<h5>Active Menu: <%= Menu.getActiveMenuName %></h5>
+<h3>Active Menu: <%= Menu.getActiveMenuName %></h3>
 
 <%= render partial: "user-menu-options",
            locals: { menu_data: MenuItem.where(menu_category_id: ActiveMenu.first.active_menu) } %>

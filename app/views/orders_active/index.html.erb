@@ -1,0 +1,26 @@
+<h3>Owner Active orders are : </h3>
+
+<div>
+    <%= link_to "Place Order", orders_path %>
+    <%= link_to "Completed Orders", "/owner/completed" %>
+    <%= link_to "Modify Menu &  Menu Items Items ", "/menus" %>
+    <%= link_to "See My Panel", "/panel" %>
+</div>
+
+<h3>Total Pending Orders: <%= Order.where(order_status: "queue").count %></h3>
+
+<% Order.where(order_status: "queue").each do |order| %>
+<div>
+  <h3>Order By:  <%= Order.find(order.id).user.name %> </h3>
+  <% if order.user.role == "clerk" %>
+    <span>Walk-in customer</span>
+  <% end %>
+
+  <h5> Total Bill: <%= Order.get_total_items_price(order.id) %> </h5>
+  <%= render partial: "order_active-cart",
+             locals: { cart_data: Order.find(order.id).order_items } %>
+  <%= form_with(url: "/orders/#{order.id}?order_status=completed", method: "PUT") do %>
+      <button onclick="this.form.submit()">Deliver Order</button>
+  <% end %>
+</div>
+<% end %>

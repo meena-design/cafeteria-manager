@@ -9,9 +9,9 @@
   </div>
     <% if (session[:current_user_id] && session[:current_user_role] == "owner") %>
         <div>
-          <%= link_to "Place Order", orders_path %>
-          <%= link_to "Completed Orders", "/owner/completed" %>
-          <%= link_to "Modify Orders", "/active/orders" %>
+          <%= link_to "Place Order", orders_path, class: "buttons" %>
+          <%= link_to "Completed Orders", "/owner/completed", class: "buttons" %>
+          <%= link_to "Modify Orders", "/active/orders", class: "buttons" %>
         </div>
         <h4>Add Menu</h4>
           <%= form_with(url: "/menus", method: "POST") do %>
@@ -35,8 +35,8 @@
         <% end %>
 <% elsif (session[:current_user_id] && session[:current_user_role] == "clerk") %>
       <div>
-        <%= link_to "Place Order", orders_path %>
-        <%= link_to "Completed Orders", "/owner/completed" %>
+        <%= link_to "Place Order", orders_path, class: "buttons" %>
+        <%= link_to "Completed Orders", "/owner/completed", class: "buttons" %>
       </div>
 <% else %>
         <div>

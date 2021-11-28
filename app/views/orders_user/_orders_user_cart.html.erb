@@ -1,0 +1,17 @@
+<table>
+        <th scope="col">Price (Rs.)</th>
+        <th scope="col">Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cart_data.each do |item| %>
+        <tr>
+          <td ><%= item.menu_item_name %></td>
+          <td><%= item.menu_item_price %></td>
+          <td>
+            <%= item.count %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>

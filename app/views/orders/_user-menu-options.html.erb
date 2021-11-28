@@ -1,0 +1,28 @@
+<table>
+  <thead>
+    <tr>
+      <th>Item No.</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price(Rs.)</th>
+      <th>Add </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% menu_data.each do |item| %>
+      <tr>
+        <td> <%= item.id %>   </td>
+        <td> <%= item.name %>  </td>
+        <td> <%= item.description %>   </td>
+        <td> <%= item.price %>  </td>
+
+        <td>
+          <%= form_with(url: "/order_items/?order_id=#{session[:current_order_id]}&menu_item_id=#{item.id}&menu_item_name=#{item.name}&menu_item_price=#{item.price}", method: "post") do %>
+            <%= image_submit_tag("addrec.png", height: "20", width: "20") do %>
+              <% end %>
+            <% end %>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

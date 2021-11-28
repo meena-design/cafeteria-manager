@@ -3,15 +3,11 @@ class MenusController < ActionController::Base
 
   def index
     #@menuitems = menu.menu_items
-    render "index"
+    #render "index"
     # here choose menu items of a concerned menu
   end
 
   def new
-    #render "menus/new"
-  end
-
-  def create
     newmenu = Menu.new(name: params[:menu_name])
     if newmenu.save
       redirect_to menus_path
@@ -21,6 +17,9 @@ class MenusController < ActionController::Base
       flash[:error] = newmenu.errors.full_messages.join(", ")
       redirect_to "/menus/new"
     end
+  end
+
+  def create
   end
 
   def show

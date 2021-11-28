@@ -24,3 +24,4 @@ Things you may want to cover:
 * ...
 # cafeteria-manager
 # mycafe-manager
+# cafeteria-manager

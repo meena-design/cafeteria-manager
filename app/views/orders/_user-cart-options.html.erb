@@ -1,0 +1,33 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price(Rs.)</th>
+      <th>Quantity</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% cart_data.each do |item| %>
+      <tr>
+        <td>
+          <%= item.menu_item_name %>
+        </td>
+        <td>
+          <%= item.menu_item_price %>
+        </td>
+        <td>
+          <%= form_with(url: "/order_items/#{item.id}", method: "PUT") do %>
+            <%= text_field_tag "count", nil, value: "#{item.count}", onchange: "this.form.submit()" %>
+              <% end %>
+        </td>
+        <td>
+          <%= form_with(url: "/order_items/#{item.id}", method: "DELETE") do %>
+            <%= image_submit_tag("delete2.png", height: "15", width: "15") do %>
+              <% end %>
+                <% end %>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,27 @@
+<table class="Menu-Table-Display">
+  <thead>
+    <tr>
+      <th>S.No</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price (Rs.)</th>
+        <th>Delete</th>
+      </tr>
+  </thead>
+  <tbody>
+   <% menu_data.each do |item| %>
+    <tr>
+      <th><%= item.id %></th>
+        <td ><%= item.name %></td>
+        <td><%= item.description %></td>
+        <td><%= item.price %></td>
+        <td>
+          <%= form_with(url: "/menu_item/#{item.id}", method: "delete") do %>
+            <%= image_submit_tag("delete2.png", height: "15", width: "15") do %>
+            <% end %>
+          <% end %>
+        </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

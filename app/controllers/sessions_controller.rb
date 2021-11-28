@@ -14,8 +14,9 @@ class SessionsController < ApplicationController
     if (user && user.authenticate(password))
       session[:current_user_id] = user.id
       session[:current_user_role] = user.role
+
       flash[:success] = "Signed in Successfully !"
-      redirect_to "/"
+      redirect_to menus_path
       #redirect to the page to which the role needs
     else
       flash[:error] = "Invalid Login ! Please Try Again !"
@@ -26,7 +27,7 @@ class SessionsController < ApplicationController
   def destroy
     session[:current_user_role] = nil
     session[:current_user_id] = nil
-    #session[:] make order id also nil after createion
+    session[:current_order_id] = nil
     @current_user = nil
     redirect_to "/"
   end

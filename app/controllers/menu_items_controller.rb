@@ -1,4 +1,4 @@
-class Menu_Item_Controller < ApplicationController
+class MenuItemsController < ApplicationController
   before_action :ensure_owner
 
   def new

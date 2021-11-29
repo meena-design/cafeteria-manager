@@ -1,4 +1,4 @@
-class OrdersUserCompletedController < ApplicationController
+class UserCompletedOrdersController < ApplicationController
   @order_ids
 
   def index

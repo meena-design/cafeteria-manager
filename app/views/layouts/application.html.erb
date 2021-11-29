@@ -12,18 +12,30 @@
   <body>
     <p class="Header">Welcome to CafeteriaManager </p>
 
-    <!-- if current user then show the username and role also -->
-    <% if flash[:error] %>
-      <p class="Flash-error">
+    <nav>
+
+    <%= link_to "/orders", class: "nav-link" do %>
+
+    <% end %>
+    <% if @current_user %>
+        <h6><%= @current_user.name %> , <%= @current_user.role %>! <h6>
+        <%= link_to "Logout", destroy_session_path, method: "delete" %>
+    <% end %>
+  </nav>
+
+   <% if flash[:error] %>
+      <div>
         <%= flash[:error] %>
-      </p>
+      </div>
     <% end %>
     <% if flash[:success] %>
-      <p class="Flash-success">
+      <div>
         <%= flash[:success] %>
-      </p>
+      </div>
     <% end %>
-    <%= yield %>
 
+  <body>
+    <%= yield %>
+  </body>
   </body>
 </html>

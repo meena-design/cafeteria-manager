@@ -1,6 +1,6 @@
 <p class="NewUsers-title">Welcome new user</p>
 <section class="UsersNew">
-    <%= form_with(url: "/users", method: "post") do %>
+    <%= form_with(url: users_path, method: "post") do %>
         <div class="Form-section">
             <p class="Input-label">
                 Name:
@@ -14,13 +14,7 @@
             <p class="Input-label">
                 Role :
             </p>
-        <%= select_tag(
-              "role", options_for_select([["owner", "owner"],
-                                          ["clerk", "clerk"],
-                                          ["customer", "customer"]]),
-              { :name => "role" }
-            ) %>
-        </div>
+<%= select_tag "role", options_for_select(["customer", "clerk", "owner"], "customer") %>
         <div class="Form-section">
         <p class="Input-label">
                 Email - id

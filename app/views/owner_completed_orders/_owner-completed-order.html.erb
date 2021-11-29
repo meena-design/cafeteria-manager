@@ -1,0 +1,19 @@
+<table>
+    <thead>
+    <%= cart_data.exists? %>
+      <tr>
+        <th>Name</th>
+        <th>Price (Rs.)</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cart_data.each do |item| %>
+        <tr>
+          <td><%= item.menu_item_name %></td>
+          <td><%= item.menu_item_price %></td>
+          <td><%= item.count %> </td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>

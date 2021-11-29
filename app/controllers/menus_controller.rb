@@ -1,5 +1,6 @@
 class MenusController < ActionController::Base
-  skip_before_action :verify_authenticity_token
+  #skip_before_action :verify_authenticity_token
+  #before_action :ensure_owner
 
   def index
     #@menuitems = menu.menu_items
@@ -15,14 +16,15 @@ class MenusController < ActionController::Base
       #render "You have added new menu category successfully.!"
     else
       flash[:error] = newmenu.errors.full_messages.join(", ")
-      redirect_to "/menus/new"
+      redirect_to menus_path
     end
   end
 
   def new
+    #render "/menus/create"
   end
 
-  def show
-    id = params[:id]
-  end
+  #def show
+  # id = params[:id]
+  #end
 end

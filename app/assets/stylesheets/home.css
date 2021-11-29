@@ -8,7 +8,7 @@
 }
 .Header {
   padding:10px;
-  background-color:rgb(243, 92, 210);
+  background-color:rgb(240, 156, 222);
   font-size: 14px;
   margin-bottom:10px;
   font-weight: bold;
@@ -53,4 +53,11 @@ table
   background: #3cb0fd;
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
+}
+body{
+  font-family: Open Sans, sans-serif;
+  max-width: 460px;
+  margin: 0 auto;
+  margin-top: 40px;
+
 }

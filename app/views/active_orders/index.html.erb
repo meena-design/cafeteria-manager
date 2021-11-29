@@ -17,7 +17,7 @@
   <% end %>
 
   <h5> Total Bill: <%= Order.get_total_items_price(order.id) %> </h5>
-  <%= render partial: "order_active-cart",
+  <%= render partial: "active-order-cart",
              locals: { cart_data: Order.find(order.id).order_items } %>
   <%= form_with(url: "/orders/#{order.id}?order_status=completed", method: "PUT") do %>
       <button onclick="this.form.submit()">Deliver Order</button>

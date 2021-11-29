@@ -18,7 +18,7 @@
 
 <% Order.get_users_active_order_ids(@current_user.id).each do |id| %>
 
-  <%= render partial: "order_user_cart",
+  <%= render partial: "user-order-cart",
              locals: { cart_data: Order.find(id).order_items } %>
   <h4> Total Number of Items: <%= Order.get_total_items_count(id) %></h4>
   <h4>Final Price: <%= Order.get_total_items_price(id) %></h4>

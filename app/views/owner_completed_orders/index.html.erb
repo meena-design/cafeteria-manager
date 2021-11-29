@@ -12,9 +12,9 @@
     <%= render partial: "owner-completed-order",
                locals: { cart_data: Order.find(id).order_items } %>
 
-    <div class='flex my-20'>
-        <p class='mr-20'>Total Items: <%= Order.get_total_items_count(id) %></p>
-        <p class='mr-20'>Total Price: <%= Order.get_total_items_price(id) %></p>
+    <div>
+        <p>Total Items: <%= Order.get_total_items_count(id) %></p>
+        <p>Total Price: <%= Order.get_total_items_price(id) %></p>
     </div>
 
 <% end %>

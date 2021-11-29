@@ -1,0 +1,31 @@
+<h3>Your Order Details:</h3>
+
+<div>
+    <%= link_to "Place Order", orders_path, class: "buttons" %>
+    <%= link_to "Completed Order", "/user/orders", class: "buttons" %>
+</div>
+
+<% if @current_user.is_owner? %>
+<div>
+
+    <%= link_to "Edit Menu & Items ", "/menus", class: "buttons" %>
+    <%= link_to "Delivered Orders", "/owner/completed", class: "buttons" %>
+    <%= link_to "Panel", "/mypanel", class: "buttons" %>
+</div>
+<% end %>
+<% if @order_ids == [] %>
+  <h2> No Order Have Been Completed Yet ! </h2>
+<% end %>
+
+<% if @order_ids != [] %>
+  <% @order_ids.each do |id| %>
+
+    <%= render partial: "user-completed-order",
+               locals: { cart_data: Order.find(id).order_items } %>
+
+    <div>
+        <p>Total Items: <%= Order.get_total_items_count(id) %></p>
+        <p>Total Price: <%= Order.get_total_items_price(id) %></p>
+    </div>
+  <% end %>
+<% end %>

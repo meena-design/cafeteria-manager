@@ -1,4 +1,4 @@
-class OrdersActiveController < ApplicationController
+class ActiveOrdersController < ApplicationController
   def index
     if current_user.is_owner?
       render "index"

@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   get "/user/completed/", to: "user_completed_orders#index", as: "completed_orders"
   get "/owner/completed/", to: "owner_completed_orders#index", as: "owner_completed_orders"
   get "/mypanel/", to: "mypanel#index", as: "mypanel"
+
+  post "/menu_items" => "menus#create"
 end

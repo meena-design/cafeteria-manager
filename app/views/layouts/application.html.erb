@@ -19,7 +19,7 @@
     <% end %>
     <% if @current_user %>
         <h6><%= @current_user.name %> , <%= @current_user.role %>! <h6>
-        <%= link_to "Logout", destroy_session_path, method: "delete" %>
+        <%= link_to "Logout", destroy_session_path, method: "delete" ,class: "flex-end" %>
     <% end %>
   </nav>
 

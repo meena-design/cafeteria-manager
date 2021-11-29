@@ -3,11 +3,8 @@
 <div>
     <%= link_to "Place Order", orders_path, class: "buttons" %>
     <%= link_to "Completed Order", "/user/orders", class: "buttons" %>
-</div>
 
 <% if @current_user.is_owner? %>
-<div>
-
     <%= link_to "Edit Menu & Items ", "/menus", class: "buttons" %>
     <%= link_to "Delivered Orders", "/owner/completed", class: "buttons" %>
     <%= link_to "Panel", "/mypanel", class: "buttons" %>

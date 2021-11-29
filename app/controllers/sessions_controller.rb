@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       session[:current_user_role] = user.role
 
       flash[:success] = "Signed in Successfully !"
-      redirect_to new_sessions_path
+      redirect_to "/"
       #redirect to the page to which the role needs
     else
       flash[:error] = "Invalid Login ! Please Try Again !"

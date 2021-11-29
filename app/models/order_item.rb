@@ -12,7 +12,6 @@ class OrderItem < ActiveRecord::Base
     all.where(order_id: Order.where(user_id: user_id).where(order_status: "queue").pluck(:id)[0])
   end
 
-  # ? Create Cart
   def self.create_from_cart(
     order_id,
     menu_item_id,
@@ -21,8 +20,6 @@ class OrderItem < ActiveRecord::Base
   )
     item_existing_in_cart = OrderItem.where(order_id: order_id).find_by(menu_item_id: menu_item_id)
 
-    # * If Does not OrderItem Exists
-    # * Add a Fresh new OrderItem in the cart
     if item_existing_in_cart == nil
       OrderItem.create!(
         order_id: order_id,
@@ -31,8 +28,6 @@ class OrderItem < ActiveRecord::Base
         menu_item_price: menu_item_price,
         count: 1,
       )
-      # * If  OrderItem Exists
-      # * Update the Count of item
     else
       id = item_existing_in_cart.id
       count = item_existing_in_cart.count
@@ -40,7 +35,6 @@ class OrderItem < ActiveRecord::Base
     end
   end
 
-  # ? Update the Count
   def self.update_order_count(
     id,
     order_menu_count

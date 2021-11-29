@@ -4,7 +4,6 @@ class MenuItem < ActiveRecord::Base
   validates :description, length: { minimum: 10 }
   validates :price, presence: true
 
-  #belongs_to :menu_category
   belongs_to :menu
 
   def self.menu_by_id(id)

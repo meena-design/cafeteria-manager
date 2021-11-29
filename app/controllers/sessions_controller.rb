@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
 
   def create
     email = params[:email]
-    #password = params[:session][:password]
     password = params[:password]
 
     user = User.find_by(email: email)
@@ -17,7 +16,6 @@ class SessionsController < ApplicationController
 
       flash[:success] = "Signed in Successfully !"
       redirect_to "/"
-      #redirect to the page to which the role needs
     else
       flash[:error] = "Invalid Login ! Please Try Again !"
       redirect_to new_sessions_path

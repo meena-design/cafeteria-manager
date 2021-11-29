@@ -2,7 +2,6 @@ class MenuItemsController < ApplicationController
   before_action :ensure_owner
 
   def new
-    #@menuitems = MenuItem.where(menu_category_id: current_menu_id)
   end
 
   def create

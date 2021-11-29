@@ -18,7 +18,6 @@ class Order < ActiveRecord::Base
     all.where(user_id: user_id).where(order_status: "completed").ids
   end
 
-  # finding it an order exists
   def self.check_if_in_active_menu(id)
     is_order_still_valid = true
     list = []
@@ -26,7 +25,7 @@ class Order < ActiveRecord::Base
     active_menu_id = ActiveMenu.first.active_menu
 
     Order.find(id).order_items.each { |it| list.push(it.menu_item_id) }
-    # for every item check here
+
     list.each do |id|
       if MenuItem.find(id).menu_category_id != active_menu_id
         is_order_still_valid = false
@@ -35,7 +34,6 @@ class Order < ActiveRecord::Base
     return is_order_still_valid
   end
 
-  # ? methods for panel
   def self.get_all_orders_count
     all.where.not(order_status: "cart").count
   end

@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  # ? => /orders
   def index
     if session[:current_order_id] == nil
       new_order = Order.create(user_id: session[:current_user_id], delivered_at: "", order_status: "cart")
@@ -7,8 +6,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  # ? => orders/:id
-  # ? => updating order_status
   def update
     id = params[:id]
     order_status = params[:order_status]
@@ -16,12 +13,10 @@ class OrdersController < ApplicationController
       is_order_still_valid = Order.check_if_in_active_menu(id)
       if is_order_still_valid
         Order.find(id).update!(order_status: "queue")
-        flash[:success] = "Your Order has been Succesfully Placed :)"
+        flash[:success] = "Your Order has been placed Successfully"
       else
-        flash[:error] = "Your Order is Cancelled as it had Items that are No Longer Available :("
+        flash[:error] = "Your Order is Cancelled as items are not available any more"
       end
-      # ? Destroy the Session once the order is placed
-      # ? redirect to users/orders/
       session[:current_order_id] = nil
       redirect_to "/user/orders/"
     elsif order_status == "completed"

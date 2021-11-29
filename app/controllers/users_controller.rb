@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
   skip_before_action :ensure_user_logged_in
-  # has_secure_password
-  # validates email
-  #validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: "Invalid email" }
 
   def new
     render "users/new"
@@ -19,7 +16,7 @@ class UsersController < ApplicationController
     if new_user.save
       session[:current_user_id] = new_user.id
       session[:current_user_role] = new_user.role
-      #redirect_to menus_path
+
       flash[:success] = "you've signed-up successfully ! please sign-in to continue"
       redirect_to "/"
     else

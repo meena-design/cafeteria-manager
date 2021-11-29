@@ -24,12 +24,7 @@
                     <%= text_field_tag "price", nil, placeholder: "Price" %>
                     <%= submit_tag "Add Menu Item", class: "buttons" %>
           <% end %>
-      <h3>Modify Active Menu</h3>
-        <%= form_with(url: "/active_menus", method: "PUT") do %>
-          <!-- while sending the value ActiveMenu.first.active_menu check with conditional operator -->
-          <%= text_field_tag "menu_id", nil, placeholder: "Menu Id", value: ActiveMenu.last.active_menu %>
-            <%= submit_tag "Modify Menu Item", class: "buttons" %>
-        <% end %>
+
 <% elsif (session[:current_user_id] && session[:current_user_role] == "clerk") %>
       <div>
         <%= link_to "Place Order", orders_path, class: "buttons" %>
@@ -41,14 +36,3 @@
         </div>
   <% end %>
   <div>
-
-
-
-<h3>Active Menu <%= Menu.getActiveMenuName %></h3>
-
-<% Menu.all.each do |m| %>
-  <h3> <u> <%= "#{m.id}. #{m.name}" %> </u> </h3>
-  <%= render partial: "menu-table",
-             locals: { menu_data: MenuItem.where(menu_category_id: m.id) } %>
-
-<% end %>

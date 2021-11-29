@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get "/" => "home#index"
   get "/signin" => "sessions#new", as: :new_sessions
   post "/signin" => "sessions#create", as: :sessions
-  #post "/users/new" => "users#create", as: :new_users
   delete "/signout" => "sessions#destroy", as: :destroy_session
 
   resources :menus
@@ -18,7 +17,4 @@ Rails.application.routes.draw do
   get "/user/completed/", to: "user_completed_orders#index", as: "completed_orders"
   get "/owner/completed/", to: "owner_completed_orders#index", as: "owner_completed_orders"
   get "/mypanel/", to: "mypanel#index", as: "mypanel"
-
-  #post "/" => "menus#create"
-
 end

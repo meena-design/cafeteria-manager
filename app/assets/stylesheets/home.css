@@ -8,7 +8,7 @@
 }
 .Header {
   padding:10px;
-  background-color:rgb(240, 156, 222);
+  background-color:#b7c72413;
   font-size: 14px;
   margin-bottom:10px;
   font-weight: bold;
@@ -34,18 +34,17 @@ table
    padding: 15px;
    text-align: center;
  }
- tr:hover {background-color: rgb(194, 247, 173);}
+ tr:hover {background-color: rgb(159, 204, 247);}
 
 .buttons {
   background: #3498db;
-
   border-radius: 9px;
   font-family: Georgia;
-  color: #ffffff;
-  font-size: 10px;
+  color: #080000ea;
+  font-size: 15px;
   padding: 5px 5px 5px 5px;
-
   margin : 3px;
+  width: auto;
 
 }
 
@@ -56,8 +55,6 @@ table
 }
 body{
   font-family: Open Sans, sans-serif;
-  max-width: 460px;
-  margin: 0 auto;
-  margin-top: 40px;
+
 
 }

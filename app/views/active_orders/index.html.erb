@@ -1,11 +1,11 @@
 <h3>Owner Active orders are : </h3>
 
 <div>
-    <%= link_to "Place Order", orders_path %>
-    <%= link_to "Completed Orders", "/owner/completed" %>
-    <%= link_to "Modify Menu &  Menu Items Items ", "/menus" %>
-    <%= link_to "See My Panel", "/panel" %>
-</div>
+    <%= link_to "Place Order", orders_path , class: "buttons" %>
+    <%= link_to "Completed Orders", "/owner/completed",class: "buttons" %>
+    <%= link_to "Modify Menu , Items", "/menus" ,class: "buttons" %>
+    <%= link_to "My Panel", "/mypanel", class: "buttons" %>
+
 
 <h3>Total Pending Orders: <%= Order.where(order_status: "queue").count %></h3>
 

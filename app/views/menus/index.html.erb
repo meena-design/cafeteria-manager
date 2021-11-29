@@ -1,15 +1,13 @@
-
-  <div>
+<body>
     <p> Welcome ! You are   <%= session[:current_user_role] %></p>
       <h3>Add Menu and Menu Items</h3>
-  </div>
     <% if (session[:current_user_id] && session[:current_user_role] == "owner") %>
-        <div>
+
           <%= link_to "Place Order", orders_path, class: "buttons" %>
           <%= link_to "Completed Orders", "/owner/completed", class: "buttons" %>
           <%= link_to "Modify Orders", "/active/orders", class: "buttons" %>
-          <%= link_to "My Panel", "/mypanel" %>
-        </div>
+          <%= link_to "My Panel", "/mypanel",class:"buttons" %>
+
         <h4>Add Menu</h4>
           <%= form_with(url: "/menus", method: "POST") do %>
             <%= text_field_tag "name", nil, placeholder: "Menu Category Name" %>
@@ -17,7 +15,7 @@
           <% end %>
         <h4> Add Menu item </h4>
           <%= form_with(url: "/menu_items", method: "POST") do %>
-              <!-- try to get the category value from database put in textbox automatically -->
+
                     <%= text_field_tag "menu_id", nil, placeholder: "Menu ID" %>
                     <%= text_field_tag "name", nil, placeholder: "Name" %>
                     <%= text_field_tag "description", nil, placeholder: "Description" %>
@@ -26,13 +24,14 @@
           <% end %>
 
 <% elsif (session[:current_user_id] && session[:current_user_role] == "clerk") %>
-      <div>
+
         <%= link_to "Place Order", orders_path, class: "buttons" %>
         <%= link_to "Completed Orders", "/owner/completed", class: "buttons" %>
-      </div>
+
 <% else %>
-        <div>
+
           <%= link_to "Place Order", orders_path, class: "buttons" %>
-        </div>
+
   <% end %>
   <div>
+</body>

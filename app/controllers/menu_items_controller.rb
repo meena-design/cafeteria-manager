@@ -1,9 +1,6 @@
 class MenuItemsController < ApplicationController
   before_action :ensure_owner
 
-  def new
-  end
-
   def create
     newMenuItem = MenuItem.new(menu_id: params[:menu_id], name: params[:name], description: params[:description], price: params[:price])
     newMenuItem.save

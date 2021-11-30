@@ -1,5 +1,5 @@
 class MenuItem < ActiveRecord::Base
-  validates :menu_id, presence: true
+  validates :menu_category_id, presence: true
   validates :name, length: { minimum: 2 }
   validates :description, length: { minimum: 10 }
   validates :price, presence: true

@@ -1,4 +1,4 @@
-  <body>
+ <body>
   <div>
     <%= link_to "Modify Menu & Items ", "/menus", class: "buttons" %>
     <%= link_to "View Orders", "/active/orders", class: "buttons" %>
@@ -20,14 +20,10 @@
 <h3>Items in your cart </h3>
 
 <% if Order.find(session[:current_order_id]).order_items != [] %>
-
 <%= render partial: "user-cart-options",
            locals: { cart_data: Order.find(session[:current_order_id]).order_items } %>
-
   <%= form_with(url: "/orders/#{session[:current_order_id]}?order_status=queue", method: "PUT") do %>
-
       <%= submit_tag "Place Order" %>
   <% end %>
-
 <% end %>
 </body>

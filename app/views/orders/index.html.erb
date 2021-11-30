@@ -14,11 +14,10 @@
 
 <%= render partial: "user-menu-options",
            locals: { menu_data: MenuItem.where(menu_category_id: ActiveMenu.first.active_menu) } %>
-
-
 <h3>Items in your cart </h3>
 
 <% if Order.find(session[:current_order_id]).order_items != [] %>
+
 <%= render partial: "user-cart-options",
            locals: { cart_data: Order.find(session[:current_order_id]).order_items } %>
 <%= form_with(url: "/orders/#{session[:current_order_id]}?order_status=queue", method: "PUT") do %>

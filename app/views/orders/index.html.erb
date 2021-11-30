@@ -21,8 +21,8 @@
 <% if Order.find(session[:current_order_id]).order_items != [] %>
 <%= render partial: "user-cart-options",
            locals: { cart_data: Order.find(session[:current_order_id]).order_items } %>
-  <%= form_with(url: "/orders/#{session[:current_order_id]}?order_status=queue", method: "PUT") do %>
-      <%= submit_tag "Place Order" %>
+  <!--<%= form_with(url: "/orders/#{session[:current_order_id]}?order_status=queue", method: "PUT") do %>
+      <%= submit_tag "Place Order" %>-->
   <% end %>
 <% end %>
 </body>

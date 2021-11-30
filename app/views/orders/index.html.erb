@@ -1,27 +1,27 @@
- <body>
+
+<% if @current_user.is_owner? %>
   <div>
-
-    <%= link_to "View Orders", "/active/orders", class: "buttons" %>
-    <%= link_to "Modify Orders", "/active/orders", class: "buttons" %>
-    <%= link_to "My panel", "/mypanel", class: "buttons" %>
-    <%= link_to "User - Completed Orders", "/user/completed/", class: "buttons" %>
-
+    <%= link_to "Edit Menu & Items ", "/menus" ,class:"buttons"%>
+    <%= link_to "See Orders", "/active/orders",class:"buttons" %>
+    <%= link_to "Edit Orders", "/active/orders",class:"buttons" %>
   </div>
+<% end %>
+
+ <div>
+    <%= link_to "Pending Orders (User)", "/user/orders/" ,class:"buttons"%>
+    <%= link_to "Completed Orders (User)", "/user/completed/" , class:"buttons" %>
+  </div>
+
+
 <h1>Order Here :  </h1>
-<h3>Order Id:  <%= session[:current_order_id] %></h3>
 
-<h3>Active Menu: <%= Menu.getActiveMenuName %></h3>
 
-<%= render partial: "user-menu-options",
-           locals: { menu_data: MenuItem.where(menu_category_id: ActiveMenu.first.active_menu) } %>
-<h3>Items in your cart </h3>
+<h3>Your Cart: </h3>
 
 <% if Order.find(session[:current_order_id]).order_items != [] %>
-
-<%= render partial: "user-cart-options",
+<%= render partial: "user-cart-table",
            locals: { cart_data: Order.find(session[:current_order_id]).order_items } %>
-<%= form_with(url: "/orders/#{session[:current_order_id]}?order_status=queue", method: "PUT") do %>
-      <%= submit_tag "Place Order" %>
+  <%= form_with(url: "/orders/#{session[:current_order_id]}?order_status=queue", method: "PUT") do %>
+      <button  onclick="this.form.submit()">Place Order</button>
   <% end %>
 <% end %>
-</body>
